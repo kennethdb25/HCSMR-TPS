@@ -4,7 +4,7 @@ import { Form, Input, Row, Col, message } from "antd";
 import { Typography, Box, Button } from "@mui/material";
 import "antd/dist/antd.min.css";
 import useStyles from "./style";
-import { set } from "lodash";
+import emailjs from "@emailjs/browser";
 
 const ForgotPassword = () => {
 	const classes = useStyles();
@@ -12,13 +12,13 @@ const ForgotPassword = () => {
 	const [second, setSecond] = useState(false);
 	const [third, setThird] = useState("");
 	const [fourth, setFourth] = useState(false);
-	const [codex, setCode] = useState(null);
+	const [otp, setOTP] = useState(null);
 	const [buttonLabel, setButtonLabel] = useState("Send");
 	const [isUser, setUser] = useState(null);
 
 	const onFinish = (values) => {
 		console.log(values);
-		setCode(Math.floor(100000 + Math.random() * 900000));
+		setOTP(Math.floor(100000 + Math.random() * 900000));
 		setFirst(false);
 		setSecond(true);
 	};
@@ -38,11 +38,10 @@ const ForgotPassword = () => {
 	const sendCode = () => {
 		setButtonLabel("Resend");
 		message.success("Please check the code at your email patiently");
-		emailjs
-			.send
-			//service
-			//template
-			();
+		emailjs.send("service_ccq0neg", "template_j3pyijr", {
+			otp: otp,
+			isUser: "kennethbtst25@gmail.com",
+		});
 	};
 
 	const onFinishFailed2 = (errorInfo) => {
