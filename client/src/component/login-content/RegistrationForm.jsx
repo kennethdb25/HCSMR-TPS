@@ -17,15 +17,15 @@ const RegistrationForm = () => {
 	const account_type = [
 		{
 			id: 1,
-			label: "Administrator",
-		},
-		{
-			id: 2,
 			label: "Supplier",
 		},
 		{
-			id: 3,
+			id: 2,
 			label: "Staff",
+		},
+		{
+			id: 3,
+			label: "Administrator",
 		},
 	];
 
