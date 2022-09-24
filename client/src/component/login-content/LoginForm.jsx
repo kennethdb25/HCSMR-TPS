@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Input, Row, Col, message } from "antd";
 import { Typography, Box, Button, Link } from "@mui/material";
 import "antd/dist/antd.min.css";
@@ -36,7 +36,7 @@ const LoginForm = (props) => {
 			>
 				<Form.Item
 					label="Email"
-					name="username"
+					name="email"
 					rules={[
 						{
 							message: "Please input your email!",

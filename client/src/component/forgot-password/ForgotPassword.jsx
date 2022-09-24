@@ -4,6 +4,7 @@ import { Form, Input, Row, Col, message } from "antd";
 import { Typography, Box, Button } from "@mui/material";
 import "antd/dist/antd.min.css";
 import useStyles from "./style";
+import { set } from "lodash";
 
 const ForgotPassword = () => {
 	const classes = useStyles();
@@ -14,9 +15,9 @@ const ForgotPassword = () => {
 	const [codex, setCode] = useState(null);
 	const [buttonLabel, setButtonLabel] = useState("Send");
 	const [isUser, setUser] = useState(null);
-
 	const onFinish = (values) => {
 		console.log(values);
+		setCode(Math.floor(100000 + Math.random() * 900000));
 	};
 
 	const onFinishFailed = (errorInfo) => {
@@ -29,8 +30,8 @@ const ForgotPassword = () => {
 		} else {
 			console.log("Failed");
 		}
-		// dispatch(emailAction(actions.EMAIL_REQUEST, values));
 	};
+	console.log(codex);
 	const sendCode = () => {
 		setButtonLabel("Resend");
 		message.success("Please check the code at your email patiently");

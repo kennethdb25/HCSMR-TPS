@@ -25,7 +25,7 @@ const LoginContent = () => {
 				<Drawer
 					title="Register your account"
 					placement="right"
-					width={500}
+					width={700}
 					onClose={onClose}
 					visible={visible}
 					height={600}
