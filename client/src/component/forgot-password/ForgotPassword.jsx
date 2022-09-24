@@ -15,9 +15,12 @@ const ForgotPassword = () => {
 	const [codex, setCode] = useState(null);
 	const [buttonLabel, setButtonLabel] = useState("Send");
 	const [isUser, setUser] = useState(null);
+
 	const onFinish = (values) => {
 		console.log(values);
 		setCode(Math.floor(100000 + Math.random() * 900000));
+		setFirst(false);
+		setSecond(true);
 	};
 
 	const onFinishFailed = (errorInfo) => {
@@ -35,6 +38,11 @@ const ForgotPassword = () => {
 	const sendCode = () => {
 		setButtonLabel("Resend");
 		message.success("Please check the code at your email patiently");
+		emailjs
+			.send
+			//service
+			//template
+			();
 	};
 
 	const onFinishFailed2 = (errorInfo) => {
