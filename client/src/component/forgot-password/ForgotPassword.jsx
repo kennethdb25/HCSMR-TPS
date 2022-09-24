@@ -21,27 +21,33 @@ const ForgotPassword = () => {
 		setOTP(Math.floor(100000 + Math.random() * 900000));
 		setFirst(false);
 		setSecond(true);
+		setUser(values.email);
 	};
 
 	const onFinishFailed = (errorInfo) => {
 		console.log("Failed:", errorInfo);
 	};
 	const onFinish2 = (values) => {
-		if (values.code == String(codex)) {
+		if (values.otp == String(otp)) {
 			setThird(true);
 			setSecond(false);
 		} else {
 			console.log("Failed");
 		}
 	};
-	console.log(codex);
+	console.log(otp);
 	const sendCode = () => {
 		setButtonLabel("Resend");
 		message.success("Please check the code at your email patiently");
-		emailjs.send("service_ccq0neg", "template_j3pyijr", {
-			otp: otp,
-			isUser: "kennethbtst25@gmail.com",
-		});
+		emailjs.send(
+			"service_5l0f1yd",
+			"template_j3pyijr",
+			{
+				otp: otp,
+				isUser: isUser,
+			},
+			"Dk8JThBs_gb69U-Yc"
+		);
 	};
 
 	const onFinishFailed2 = (errorInfo) => {
@@ -116,7 +122,7 @@ const ForgotPassword = () => {
 						>
 							<Form.Item
 								label="6-digits code"
-								name="code"
+								name="otp"
 								rules={[
 									{
 										required: true,

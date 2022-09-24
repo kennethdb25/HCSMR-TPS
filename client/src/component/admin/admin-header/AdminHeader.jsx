@@ -5,7 +5,6 @@ import AdbIcon from "@mui/icons-material/Adb";
 import Profile from "./Profile";
 
 const pages = ["Accounts", "Pricing", "Transactions"];
-const settings = ["Profile", "Account", "Logout"];
 
 const AdminHeader = () => {
 	const [anchorElNav, setAnchorElNav] = React.useState(null);
